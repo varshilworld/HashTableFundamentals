@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Week {
+public class Problem1 {
 
     // Stores: Username -> UserID (To check existence)
     private HashMap<String, Integer> takenUsernames = new HashMap<>();
@@ -12,7 +12,6 @@ public class Week {
     public boolean checkAvailability(String username) {
         // Track the attempt regardless of availability
         attemptFrequency.put(username, attemptFrequency.getOrDefault(username, 0) + 1);
-
         return !takenUsernames.containsKey(username);
     }
 
@@ -41,22 +40,22 @@ public class Week {
 
     // Main method to test functionality
     public static void main(String[] args) {
-        Week week = new Week();
+        Problem1 app = new Problem1();
 
         // Register some usernames
-        week.registerUsername("Alice", 1);
-        week.registerUsername("Bob", 2);
+        app.registerUsername("Alice", 1);
+        app.registerUsername("Bob", 2);
 
         // Check availability
-        System.out.println("Is 'Alice' available? " + week.checkAvailability("Alice"));
-        System.out.println("Is 'Charlie' available? " + week.checkAvailability("Charlie"));
+        System.out.println("Is 'Alice' available? " + app.checkAvailability("Alice"));
+        System.out.println("Is 'Charlie' available? " + app.checkAvailability("Charlie"));
 
         // Suggest alternatives
-        System.out.println("Suggestions for 'Alice': " + week.suggestAlternatives("Alice"));
-        System.out.println("Suggestions for 'Charlie': " + week.suggestAlternatives("Charlie"));
+        System.out.println("Suggestions for 'Alice': " + app.suggestAlternatives("Alice"));
+        System.out.println("Suggestions for 'Charlie': " + app.suggestAlternatives("Charlie"));
 
         // Check attempt frequency
-        System.out.println("Attempts for 'Alice': " + week.getAttemptFrequency("Alice"));
-        System.out.println("Attempts for 'Charlie': " + week.getAttemptFrequency("Charlie"));
+        System.out.println("Attempts for 'Alice': " + app.getAttemptFrequency("Alice"));
+        System.out.println("Attempts for 'Charlie': " + app.getAttemptFrequency("Charlie"));
     }
 }
